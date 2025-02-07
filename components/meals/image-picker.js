@@ -17,7 +17,8 @@ export default function ImagePicker({ label, name }) {
     const file = event.target.files[0]; // The first file the user picked
 
     if (!file) {
-      setPickedImage(null); // No image picked - reset the preview
+      setPickedImage(null);
+      return; // No image picked - reset the preview
     }
 
     const fileReader = new FileReader(); // For data URL (source of the image) FileReader is a JS class
@@ -41,6 +42,7 @@ export default function ImagePicker({ label, name }) {
           name={name}
           ref={imageInput}
           onChange={handleImageChange}
+          required
         ></input>
 
         <button
