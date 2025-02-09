@@ -1,39 +1,47 @@
-# 🍽️ Foodies 
-### A Full-Stack Next.js App for Meal Browsing  
+# 🍽️ Foodies - Next.js Meal Sharing App
 
-## 📌 Overview  
-This project is a **Next.js** application that allows users to browse and view meal details. It utilizes **React components, server-side rendering (SSR), and an SQLite database** to manage and display meal information dynamically.  
+## 📚 Overview
 
----
-
-## 🚀 Features  
-✅ **Next.js 13 (App Router)** – Uses server-side rendering and dynamic routing for efficient rendering.  
-✅ **Dynamic Meal Pages** – Each meal has its own detailed page, fetched from a SQLite database.  
-✅ **Styled with CSS Modules** – Ensures modular and maintainable styling for each component.  
-✅ **Optimized Image Handling** – Uses **Next.js Image Optimization** for fast-loading meal images.  
-✅ **Error Handling & Loading States** – Custom error pages and loading indicators for a smooth user experience.  
-✅ **Modular Components** – Reusable UI components for maintainability.  
+Foodies is a **Next.js-powered** full-stack application that allows users to **browse, share, and manage meal recipes**. The app uses **server-side rendering (SSR)**, **Next.js dynamic routing**, and an **SQLite database** to store meal information. Users can explore a variety of delicious meals, view detailed recipes, and contribute their own meals by submitting images and descriptions. The app is designed for a food-loving community to share their favorite recipes and discover new culinary inspirations.
 
 ---
 
-## 🛠️ Technologies Used  
-- **Next.js 13** – For SSR and API routes.  
-- **React** – Component-based architecture.  
-- **SQLite (better-sqlite3)** – Lightweight database for meal storage.  
-- **CSS Modules** – Scoped styling for each component.  
-- **Node.js & npm** – For package management and development.  
-- **ESLint & Prettier** – Code formatting and linting.  
+## 🚀 Features
+
+- ✅ **Next.js (App Router)** - Uses server actions and advanced routing for efficiency.
+- ✅ **Server-Side Rendering (SSR)** - Fetches meal data dynamically.
+- ✅ **SQLite Database** - Stores meals efficiently.
+- ✅ **Dynamic Meal Pages** - Each meal has its detailed page.
+- ✅ **Optimized Image Handling** - Uses Next.js `<Image>` component.
+- ✅ **Error Handling & Loading States** - Custom error and loading pages.
+- ✅ **Modular Components** - Structured UI with reusability.
+- ✅ **Secure File Uploads** - Handles image uploads securely.
+- ✅ **SEO Optimized** - Uses Next.js metadata for better indexing.
+
+---
+
+## 💻 Technologies Used
+
+- **Next.js** - Full-stack React framework.
+- **React 19** - Client-side rendering and component management.
+- **SQLite (better-sqlite3)** - Lightweight database.
+- **CSS Modules** - Scoped styling.
+- **Node.js & npm** - Backend processing.
+- **Slugify & XSS** - Data sanitization and security.
+- **ESLint & Prettier** - Code formatting and linting.
 
 ---
 
 ## 📸 Project Preview
-![image](https://github.com/user-attachments/assets/816efb7d-c50c-4278-a246-433838240f6f)
-![image](https://github.com/user-attachments/assets/6660aadf-cbe3-4ae0-b945-4a7c97f2b11a)
-![image](https://github.com/user-attachments/assets/647d37be-6e7f-43d2-bb3c-34025b670e4a)
 
+![Main page of foodies](image.png)
+![alt text](image-5.png)
+![Meal details page](image-4.png)
+![Meal submit in foodies](image-3.png)
 
+---
 
-## 📂 Project Structure  
+## 📂 Project Structure
 
 ```
 foodies-website/
@@ -71,31 +79,109 @@ foodies-website/
 
 ---
 
-## 📸 Preview  
-*(Include a screenshot of your app here for better presentation.)*  
+## 💾 Installation & Setup
 
----
+### 1️⃣ Clone the Repository
 
-## 📥 Installation & Setup  
-
-### 1️⃣ Clone the Repository  
 ```sh
 git clone https://github.com/Caiko/foodies-website.git
 cd foodies-website
 ```
 
-### 2️⃣ Install Dependencies  
+### 2️⃣ Install Dependencies
+
 ```sh
 npm install
 ```
 
-### 3️⃣ Set Up the Database  
+### 3️⃣ Set Up the Database
+
 ```sh
 node initdb.js
 ```
 
-### 4️⃣ Run the Development Server  
+### 4️⃣ Run the Development Server
+
 ```sh
 npm run dev
 ```
-Then open **[localhost:3000](http://localhost:3000)** in your browser.   
+
+Then open [**localhost:3000**](http://localhost:3000) in your browser.
+
+### ⚡ Test in Production Mode!
+
+Running the production build ensures that **Next.js optimizations**, such as **static page pre-rendering, automatic caching, and performance tuning**, take full effect. This results in **instant page loads and a more realistic user experience**, mimicking how the app will function once deployed.
+
+### 5️⃣ Build for Production
+
+```sh
+npm run build
+```
+
+This command compiles the application for production, optimizing performance and generating static pages where possible.
+
+### 6️⃣ Run in Production Mode
+
+```sh
+npm start
+```
+
+This starts the optimized **production server**, which is different from the development server and ensures better performance.
+
+---
+
+## 🗒️ Features Breakdown
+
+### **1. **``** Component in Next.js**
+
+- **Improved Performance:** Automatically optimizes images.
+- **Lazy Loading:** Reduces initial load time.
+- **Responsive Behavior:** Adapts to screen sizes.
+- **CDN Support:** Uses Next.js built-in optimization.
+
+```jsx
+<Image src={image} alt={title} fill />
+```
+
+### **2. Slideshow Component**
+
+- Uses `useEffect()` to automatically transition images.
+- Ensures smooth user experience.
+- Cleans up `setInterval()` to avoid memory leaks.
+
+```jsx
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex < images.length - 1 ? prevIndex + 1 : 0
+    );
+  }, 5000);
+  return () => clearInterval(interval);
+}, []);
+```
+
+### **3. Dynamic Routing with **``
+
+- Highlights active navigation tabs dynamically.
+- Uses a dedicated `NavLink` component for efficient updates.
+
+```jsx
+const path = usePathname();
+<Link
+  href="/meals"
+  className={path.startsWith("/meals") ? classes.active : undefined}
+>
+  Browse Meals
+</Link>;
+```
+
+### **4. Secure Form Submission & Data Validation**
+
+- Uses `useActionState()` to manage form submission.
+- Implements `slugify` for URL-safe slugs.
+- Sanitizes inputs with `xss` to prevent XSS attacks.
+
+```jsx
+const [state, formAction] = useActionState(shareMeal, { message: null });
+<form action={formAction}> ... </form>;
+```
