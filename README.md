@@ -8,15 +8,15 @@ Foodies is a **Next.js-powered** full-stack application that allows users to **b
 
 ## 🚀 Features
 
-- ✅ **Next.js (App Router)** - Uses server actions and advanced routing for efficiency.
-- ✅ **Server-Side Rendering (SSR)** - Fetches meal data dynamically.
-- ✅ **SQLite Database** - Stores meals efficiently.
-- ✅ **Dynamic Meal Pages** - Each meal has its detailed page.
-- ✅ **Optimized Image Handling** - Uses Next.js `<Image>` component.
-- ✅ **Error Handling & Loading States** - Custom error and loading pages.
-- ✅ **Modular Components** - Structured UI with reusability.
-- ✅ **Secure File Uploads** - Handles image uploads securely.
-- ✅ **SEO Optimized** - Uses Next.js metadata for better indexing.
+- **Next.js (App Router)** - Uses server actions and advanced routing for efficiency.
+- **Server-Side Rendering (SSR)** - Fetches meal data dynamically.
+- **SQLite Database** - Stores meals efficiently.
+- **Dynamic Meal Pages** - Each meal has its detailed page.
+- **Optimized Image Handling** - Uses Next.js `<Image>` component.
+- **Error Handling & Loading States** - Custom error and loading pages.
+- **Modular Components** - Structured UI with reusability.
+- **Secure File Uploads** - Handles image uploads securely.
+- **SEO Optimized** - Uses Next.js metadata for better indexing.
 
 ---
 
